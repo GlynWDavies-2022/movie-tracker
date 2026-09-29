@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import Main from './components/Main';
-import Navbar from './components/Navbar';
+import MovieList from './MovieList';
 
 const tempMovieData = [
     {
@@ -24,13 +23,17 @@ const tempMovieData = [
     },
 ];
 
-export default function App() {
+function ListBox() {
+    const [isOpen1, setIsOpen1] = useState(true);
     const [movies] = useState(tempMovieData);
     return (
-        <>
-            <Navbar movies={movies} />
-            <Main />
-        </>
+        <div className='box'>
+            <button className='btn-toggle' onClick={() => setIsOpen1((open) => !open)}>
+                {isOpen1 ? '–' : '+'}
+            </button>
+            {isOpen1 && <MovieList movies={movies} />}
+        </div>
     );
 }
 
+export default ListBox;
