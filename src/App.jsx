@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import ListBox from './components/ListBox';
 import Main from './components/Main';
+import MovieList from './components/MovieList';
 import Navbar from './components/Navbar';
 import Results from './components/Results';
 import Search from './components/Search';
@@ -37,7 +38,9 @@ export default function App() {
                 <Results movies={movies} />
             </Navbar>
             <Main>
-                <ListBox movies={movies} />
+                <ListBox>
+                    <MovieList movies={movies} />
+                </ListBox>
                 <WatchedBox />
             </Main>
         </>
